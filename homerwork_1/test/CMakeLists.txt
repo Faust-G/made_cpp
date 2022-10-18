@@ -3,7 +3,7 @@ project(test_weather)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-fprofile-arcs -ftest-coverage -O0")
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov" )
+#set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov" )
 
 file(GLOB SOURCES_C "*.cpp")
 
@@ -14,4 +14,3 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME}  GTest::gtest_main)
 
 gtest_discover_tests(${PROJECT_NAME})
-#add_test(NAME $(PROJECT_NAME) COMMAND ${PROJECT_NAME})
