@@ -12,3 +12,6 @@ find_package(GTest REQUIRED)
 add_executable(${PROJECT_NAME} ${SOURCES_C} ${SR})
 target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME}  GTest::gtest_main)
+
+gtest_discover_tests(${PROJECT_NAME})
+#add_test(NAME $(PROJECT_NAME) COMMAND ${PROJECT_NAME})

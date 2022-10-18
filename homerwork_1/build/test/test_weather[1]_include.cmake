@@ -1,0 +1,5 @@
+if(EXISTS "/made_cpp/homerwork_1/build/test/test_weather[1]_tests.cmake")
+  include("/made_cpp/homerwork_1/build/test/test_weather[1]_tests.cmake")
+else()
+  add_test(test_weather_NOT_BUILT test_weather_NOT_BUILT)
+endif()

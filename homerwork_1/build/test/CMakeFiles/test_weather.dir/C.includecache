@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/made_cpp/homerwork_1/weather/weather.c
+weather.h
+/made_cpp/homerwork_1/weather/weather.h
+
+/made_cpp/homerwork_1/weather/weather.h
+stdio.h
+-
+

@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/weather.dir/main.c.o CMakeFiles/weather.dir/weather/weather.c.o -o weather 
