@@ -1,20 +1,16 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(weather VERSION 0.1.0)
+project(weather_struct)
 
-set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "-fprofile-arcs -ftest-coverage -fPIC -O0")
-file(GLOB SOURCES "**/*.h" "*.c" "**/*.c" )
-file(GLOB SR "**/*.h" "**/*.c" )
-file(GLOB INCLUDE_DIRS weather)
+add_subdirectory(weather)
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+message("WEATHER_LIB_INCLUDE_DIRS= ${WEATHER_LIB_INCLUDE_DIRS}")
+message("WEATHER_LIB_LIBRARIES = ${WEATHER_LIB_LIBRARIES}")
 
-#set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov" )
+add_executable(${PROJECT_NAME} main.c)
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov" )
 
+target_include_directories(${PROJECT_NAME} PUBLIC ${WEATHER_LIB_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${WEATHER_LIB_LIBRARIES})
 
-message("this is SOURCES = ${SOURCES}")
-message("this is INCLUDE_DIRS = ${INCLUDE_DIRS}")
-
-enable_testing()
 add_subdirectory(test)

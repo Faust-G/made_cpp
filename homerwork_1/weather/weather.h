@@ -1,14 +1,14 @@
 #ifndef __weather
 #define __weather
 
-#include<stdio.h>
+#include <stdio.h>
 
 #define INF 1e9
 
-typedef struct{
-    double temperature;
-    double fallout;
-    double wind_speed;
+typedef struct {
+  double temperature;
+  double fallout;
+  double wind_speed;
 } wearher_info;
 
 wearher_info get_min_temperature(wearher_info arr[], size_t size);
