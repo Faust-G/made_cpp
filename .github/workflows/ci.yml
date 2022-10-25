@@ -13,7 +13,6 @@ jobs:
       run: |
         sudo apt-get install libgtest-dev
         sudo apt-get install cppcheck
-        sudo apt-get install clang-format
         sudo apt-get install valgrind
         sudo apt-get install lcov
         cd homerwork_1
@@ -23,18 +22,13 @@ jobs:
         cd homerwork_1/build
         cmake ..
         cmake --build .
-    - name: Test code
-      run: |
-        cd homerwork_1/
-        cppcheck weather/*.h weather/*.c main.c test/test_weather.cpp
         
-    - name: clang-format style check.
+    - name: Clang-format style check.
       uses: jidicula/clang-format-action@v4.9.0
       with:
         clang-format-version: '13'
-        check-path: 
-          - 'weather'
-          - 'test'
+        check-path: 'homerwork_1/weather/'
+
     - name: Test + coverage
       run: |
         cd homerwork_1/build
