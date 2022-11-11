@@ -1,1 +1,0 @@
-/usr/local/bin/g++ -std=c++17 -fprofile-arcs -ftest-coverage -O0  -coverage -lgcov CMakeFiles/test_matrix.dir/test.cpp.o -o test_matrix  /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a -lpthread 

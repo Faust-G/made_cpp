@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "HW2"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install libs
+      run: |
+        sudo apt-get install libgtest-dev
+        sudo apt-get install cppcheck
+        sudo apt-get install valgrind
+        sudo apt-get install lcov
+        cd homerwork_2
+        mkdir -p build
+    - name: Run CMake
+      run: |
+        cd homerwork_2/build
+        cmake ..
+        cmake --build .
+        
+    - name: Clang-format style check.
+      uses: jidicula/clang-format-action@v4.9.0
+      with:
+        clang-format-version: '13'
+        check-path: 'homerwork_2/'
+        exclude-regex: '(build|CMakeLists.txt)'
+
+    - name: Test + coverage
+      run: |
+        cd homerwork_1/build
+        valgrind --tool=memcheck --leak-check=yes ./test_matrix
+        lcov -t "test_matrix" -o coverage.info -c -d CMakeFiles
+        genhtml -o report coverage.info
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage-report
+        path: homerwork_2/build/report
