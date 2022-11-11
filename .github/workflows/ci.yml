@@ -32,7 +32,7 @@ jobs:
 
     - name: Test + coverage
       run: |
-        cd homerwork_1/build
+        cd homerwork_2/build
         valgrind --tool=memcheck --leak-check=yes ./test_matrix
         lcov -t "test_matrix" -o coverage.info -c -d CMakeFiles
         genhtml -o report coverage.info
