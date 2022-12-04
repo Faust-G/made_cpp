@@ -33,8 +33,8 @@ jobs:
     - name: Test + coverage
       run: |
         cd homerwork_3/build
-        valgrind --tool=memcheck --leak-check=yes ./test_matrix
-        lcov -t "test_matrix" -o coverage.info -c -d CMakeFiles
+        valgrind --tool=memcheck --leak-check=yes ./test_set
+        lcov -t "test_set" -o coverage.info -c -d CMakeFiles
         genhtml -o report coverage.info
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
