@@ -40,4 +40,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: code-coverage-report
-        path: homerwork_2/build/report
+        path: homerwork_3/build/report
