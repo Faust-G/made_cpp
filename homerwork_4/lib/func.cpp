@@ -31,7 +31,7 @@ std::vector<int> f(const std::vector<std::string> & inpt){
             StringAllocator;
     typedef vector<MyShmString, StringAllocator>
             MyShmStringVector;
-
+    // bp::system("lib/weather");
     struct shm_remove
     {
         shm_remove() { shared_memory_object::remove("MySharedMemory"); }
@@ -49,7 +49,7 @@ std::vector<int> f(const std::vector<std::string> & inpt){
         mystring = i;
         myshmvector->push_back(mystring);
     }
-    std::ifstream f("/home/slava/CLionProjects/sport/text.txt");
+    // std::ifstream f("/home/slava/CLionProjects/sport/text.txt");
     // std::string data( (std::istreambuf_iterator<char>(f) ),
     //                   (std::istreambuf_iterator<char>()    ) );
    std::string data = "aa3aababaaa3aababaaa3aababa";
