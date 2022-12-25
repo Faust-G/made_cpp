@@ -131,6 +131,14 @@ Matrix<N, M> operator*(double a, const Matrix<N, M> &b) {
   return b * a;
 }
 template <int N, int M>
+Matrix<N, M> operator+(double a, const Matrix<N, M> &b) {
+  return b + a;
+}
+template <int N, int M>
+Matrix<N, M> operator-(double a, const Matrix<N, M> &b) {
+  return a + ((-1) * b);
+}
+template <int N, int M>
 Matrix<N, M> make_operation(const Matrix<N, M> &a, const Matrix<N, M> &b,
                             int op) {
   Matrix<N, M> res;
@@ -163,6 +171,18 @@ template <int N> Matrix<1, N> operator*(const Matrix<1, N> &a, double x) {
     res[i] = a[i] * x;
   return res;
 }
+template <int N> Matrix<1, N> operator+(const Matrix<1, N> &a, double x) {
+  Matrix<1, N> res;
+  for (int i = 0; i < N; ++i)
+    res[i] = a[i] + x;
+  return res;
+}
+template <int N> Matrix<1, N> operator-(const Matrix<1, N> &a, double x) {
+  Matrix<1, N> res;
+  for (int i = 0; i < N; ++i)
+    res[i] = a[i] - x;
+  return res;
+}
 
 template <int N, int M>
 Matrix<N, M> operator*(const Matrix<N, M> &a, double x) {
@@ -172,10 +192,43 @@ Matrix<N, M> operator*(const Matrix<N, M> &a, double x) {
       res[i][j] = a[i][j] * x;
   return res;
 }
+
+template <int N, int M>
+Matrix<N, M> operator+(const Matrix<N, M> &a, double x) {
+  Matrix<N, M> res;
+  for (int i = 0; i < N; ++i)
+    for (int j = 0; j < M; ++j)
+      res[i][j] = a[i][j] + x;
+  return res;
+}
+
+template <int N, int M>
+Matrix<N, M> operator-(const Matrix<N, M> &a, double x) {
+  Matrix<N, M> res;
+  for (int i = 0; i < N; ++i)
+    for (int j = 0; j < M; ++j)
+      res[i][j] = a[i][j] - x;
+  return res;
+}
+
 template <int N> Matrix<N, 1> operator*(const Matrix<N, 1> &a, double x) {
   Matrix<N, 1> res;
   for (int i = 0; i < N; ++i)
     res[i] = a[i] * x;
+  return res;
+}
+
+template <int N> Matrix<N, 1> operator+(const Matrix<N, 1> &a, double x) {
+  Matrix<N, 1> res;
+  for (int i = 0; i < N; ++i)
+    res[i] = a[i] + x;
+  return res;
+}
+
+template <int N> Matrix<N, 1> operator-(const Matrix<N, 1> &a, double x) {
+  Matrix<N, 1> res;
+  for (int i = 0; i < N; ++i)
+    res[i] = a[i] - x;
   return res;
 }
 

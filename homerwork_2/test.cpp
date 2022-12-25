@@ -86,7 +86,7 @@ TEST(Matrix, Test_T) {
   EXPECT_EQ(compare(a, b.T()), true);
 }
 
-TEST(Matrix, Mult_scal) {
+TEST(Matrix, Scal_oper) {
   auto res = Matrix<2, 3>({array<double, 3>{2 * 3, 3 * 3, 7 * 3},
                            array<double, 3>{4 * 3, 6 * 3, 9 * 3}});
   EXPECT_EQ(compare(res, mat * 3), true);
@@ -97,6 +97,18 @@ TEST(Matrix, Mult_scal) {
   auto b = Matrix<1, 2>({1, 3});
   EXPECT_EQ(compare(Matrix<1, 2>({1 * 16, 3 * 16}), b * 16), true);
   EXPECT_EQ(compare(Matrix<1, 2>({1 * 16, 3 * 16}), 16 * b), true);
+
+  res = Matrix<2, 3>({array<double, 3>{2 + 3, 3 + 3, 7 + 3},
+                      array<double, 3>{4 + 3, 6 + 3, 9 + 3}});
+  EXPECT_EQ(compare(res, mat + 3), true);
+  EXPECT_EQ(compare(res, 3 + mat), true);
+
+  res = Matrix<2, 3>({array<double, 3>{2 - 3, 3 - 3, 7 - 3},
+                      array<double, 3>{4 - 3, 6 - 3, 9 - 3}});
+  EXPECT_EQ(compare(res, mat - 3), true);
+  res = Matrix<2, 3>({array<double, 3>{3 - 2, 3 - 3, 3 - 7},
+                      array<double, 3>{3 - 4, 3 - 6, 3 - 9}});
+  EXPECT_EQ(compare(res, 3 - mat), true);
 }
 
 TEST(Matrix, Mat_opearations) {
